@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>coffeelogger</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message[1] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="" method="post">
+            {{ form.csrf }}
+
+            <div class="input date">
+                {{ form.date.label }} {{ form.date }}
+            </div>
+            <div class="input text">
+                {{ form.time.label }} {{ form.time }}
+            </div>
+            <div class="input text">
+                {{ form.cups.label }} {{ form.cups }}
+            </div>
+            <div class="input select">            
+                {{ form.drink.label }} {{ form.drink }}
+            </div>
+            <div class="input text">
+                {{ form.notes.label }} {{ form.notes }}
+            </div>
+            <div class="input text">
+                {{ form.shop.label }} {{ form.shop }}
+            </div>
+            <div class="input text">
+                {{ form.cost.label }} {{ form.cost }}
+            </div>
+            <div class="input radio">
+                {{ form.rating.label }} {{ form.rating }}
+            </div>
+
+            <div class="input submit">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </body>
+</html>
