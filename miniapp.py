@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, DateField, DateTimeField, IntegerField, SelectField, RadioField, DecimalField, validators, StringField, SubmitField
-import datetime
+import datetime, json
 
 # App config.
 DEBUG = True
@@ -21,6 +21,12 @@ class ReusableForm(Form):
     cost = DecimalField('Cost:', places=2)
     rating = RadioField('Rating:', default='3', choices=[('1','One'),('2','Two'),('3','Three'),('4','Four'),('5','Five')], validators=[validators.DataRequired()] )
 
+def dictBuild(vars):
+    data = {'version' : '1.0'}
+    for var in vars:
+        data[var] = var
+    return json.dumps(data)
+
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     form = ReusableForm(request.form)
@@ -35,7 +41,6 @@ def hello():
         shop=request.form['shop']
         cost=request.form['cost']
         rating=request.form['rating']
-
         print date
         print time
         print cups
@@ -44,12 +49,17 @@ def hello():
         print shop
         print cost
         print rating
+        # vars = [date, time, cups, drink, notes, shop, cost, rating]
 
         if form.validate():
             # Save the comment here.
             flash('You drank ' + cups +' cups of '+ drink + ' on ' + date + ' at ' + time + ', and rated it ' + rating + ' stars.')
             flash('This coffee was bought from ' + shop + ' for ' + cost)
             flash('Your notes about the drink: ' + notes)
+            # Build json document
+            jsonData = json.dumps({'version':'1.0', 'date': date, 'time': time, 'cups': cups, 'drink':drink, 'notes':notes, 'shop':shop, 'cost':cost, 'rating':rating})
+            #jsonData = dictBuild(vars)
+            flash(jsonData)
         else:
             flash('Make sure all required fields are filled. ')
 
