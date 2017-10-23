@@ -1,0 +1,17 @@
+2017-10-23T20:22:58.806+0100 I CONTROL  [initandlisten] MongoDB starting : pid=26552 port=27017 dbpath=/Users/Joe 1/Documents/dev/coffeelog/db 64-bit host=MacBook-Pro.home
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] db version v3.4.9
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] git version: 876ebee8c7dd0e2d992f36a848ff4dc50ee6603e
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2l  25 May 2017
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] allocator: system
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] modules: none
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] build environment:
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten]     distarch: x86_64
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-10-23T20:22:58.807+0100 I CONTROL  [initandlisten] options: { processManagement: { fork: true }, storage: { dbPath: "/Users/Joe 1/Documents/dev/coffeelog/db" }, systemLog: { destination: "file", path: "/Users/Joe 1/Documents/dev/coffeelog/log/mongod.log
+
+" } }
+2017-10-23T20:22:58.810+0100 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /Users/Joe 1/Documents/dev/coffeelog/db/mongod.lock Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2017-10-23T20:22:58.810+0100 I NETWORK  [initandlisten] shutdown: going to close listening sockets...
+2017-10-23T20:22:58.810+0100 I NETWORK  [initandlisten] shutdown: going to flush diaglog...
+2017-10-23T20:22:58.810+0100 I CONTROL  [initandlisten] now exiting
+2017-10-23T20:22:58.810+0100 I CONTROL  [initandlisten] shutting down with code:100
